@@ -9,7 +9,7 @@ public class readandmodifRDF {
 
     public static void main(String[] args) throws IOException {
         //fichier rdf
-        String source = "/home/xairon/RDF_Jena/human.rdf";
+        String source = "human.rdf";
         //creation du model
         Model m = FileManager.get().loadModel( source, "RDF/XML" );
         //print du fichier rdf
