@@ -18,11 +18,8 @@ public class queryRDF{
 
 
         // Run the SPARQL query and get some results
-        String getItemsLists = "" +
-                "prefix rdf: <http://www.inria.fr/2007/09/11/humans.rdfs#>\n" +
-                "select ?x ?t where\n"+
-                "{\n"+
-                "?x rdf:type ?t\n"+
+        String getItemsLists = "select * where {\n" +
+                "  ?x ?p ?y\n" +
                 "}";
 
         Query query = QueryFactory.create(getItemsLists);
