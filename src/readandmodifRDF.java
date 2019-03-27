@@ -6,19 +6,22 @@ import org.apache.jena.util.FileManager;
 
 public class readandmodifRDF {
 
-    public static void Add(String fichier,String Namespace,String target,String ressourcename,String ressourcevalue,String filename) throws IOException {
+    private static String namespaceProperty = "http://www.inria.fr/2007/09/11/humans.rdfs#";
+    private static String namespaceInstance = "http://www.inria.fr/2007/09/11/humans.rdfs-instances#";
+
+    public static void Add(String fichier,String target,String ressourcename,String ressourcevalue,String filename) throws IOException {
         //fichier rdf
         String source = fichier;
         //creation du model
         Model m = FileManager.get().loadModel( source, "RDF/XML" );
         //print du fichier rdf
         //m.write(System.out);
-        String namespace = Namespace;
+
         //élément à trouver (ressource)
-        Resource res = m.getResource( namespace + target );
+        Resource res = m.getResource( namespaceInstance + target );
 
         //*Ajoute d'une propriété âge setup à 16
-        Property myproperty = m.getProperty(namespace+ressourcename);
+        Property myproperty = m.getProperty(namespaceProperty+ressourcename);
         System.out.println(myproperty);
         res.removeAll(myproperty);
         res.addProperty(myproperty, ressourcevalue);
@@ -37,15 +40,15 @@ public class readandmodifRDF {
             }
         }
     }
-    public static void showinfo(String fichier, String Namespace,String ressource) throws IOException {
+    public static void showinfo(String fichier,String ressource) throws IOException {
         //fichier rdf
         String source = fichier;
         //creation du model
         Model m = FileManager.get().loadModel( source, "RDF/XML" );
         //print du fichier rdf
         //m.write(System.out);
-        String namespace = Namespace;
-        Resource res = m.getResource( namespace + ressource );
+
+        Resource res = m.getResource( namespaceInstance + ressource );
 //affichage de toutes les propriétés de la ressource
         for (StmtIterator i = res.listProperties(); i.hasNext(); ) {
             Statement stmt = i.next();
@@ -59,10 +62,10 @@ public class readandmodifRDF {
 
         String source = "human.rdf";
         String save = "out.rdf";
-        String namespace = "http://www.inria.fr/2007/09/11/humans.rdfs-instances#";
-        showinfo(source,namespace,"Mark");
-        Add(source,namespace,"Mark","age","16",save);
-        showinfo(save,namespace,"Mark");
+
+        showinfo(source,"Mark");
+        Add(source,"Mark","age","16",save);
+        showinfo(save,"Mark");
 
     }
 }
