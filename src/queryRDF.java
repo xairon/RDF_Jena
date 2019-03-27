@@ -21,7 +21,19 @@ public class queryRDF{
         String getItemsLists = "select * where {\n" +
                 "  ?x ?p ?y\n" +
                 "}";
+        String uniqueName = "select DISTINCT ?x where {\n" +
+                " ?x ?p ?y\n"
+                + "}";
 
+        String married = "prefix prop:<http://www.inria.fr/2007/09/11/humans.rdfs#>\n"+
+                "select ?y ?a where {\n"+
+                "?x prop:hasSpouse ?a.\n"+
+                "?x prop:name ?y \n" +
+                "}";
+
+        String john = "select * where {\n" +
+                "?x ?p 'John'\n"+
+                "}";
         Query query = QueryFactory.create(getItemsLists);
         QueryExecution qExe = QueryExecutionFactory.create(query, model);
         ResultSet result = qExe.execSelect();

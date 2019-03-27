@@ -1,6 +1,5 @@
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:j.0="http://www.inria.fr/2007/09/11/humans.rdfs-instances#"
     xmlns="http://www.inria.fr/2007/09/11/humans.rdfs#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
@@ -18,11 +17,10 @@
     </hasSpouse>
   </Woman>
   <Person rdf:about="http://www.inria.fr/2007/09/11/humans.rdfs-instances#Mark">
-    <j.0:age>16</j.0:age>
-    <hasFather rdf:resource="http://www.inria.fr/2007/09/11/humans.rdfs-instances#John"/>
+    <age>16</age>
     <trouserssize>36</trouserssize>
     <shirtsize>9</shirtsize>
-    <age>14</age>
+    <hasFather rdf:resource="http://www.inria.fr/2007/09/11/humans.rdfs-instances#John"/>
     <shoesize>8</shoesize>
     <name>Mark</name>
   </Person>
