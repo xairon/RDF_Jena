@@ -17,7 +17,7 @@ public class RDFS {
 
             if (in != null)
                 model.read(in, "");
-            if (in != null)
+            if (in2 != null)
                 schema.read(in2, "");
             Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
             reasoner = reasoner.bindSchema(schema);
