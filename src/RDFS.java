@@ -62,6 +62,13 @@ public class RDFS {
 
             ResultSetFormatter.out(System.out,results , query);
             qe.close();
+            System.out.println("////////////////////////////////////");
+
+            Query queryrdf = QueryFactory.create(ancestor);
+            QueryExecution qExerdf = QueryExecutionFactory.create(queryrdf, model);
+            ResultSet resultrdf = qExerdf.execSelect();
+            ResultSetFormatter.out(System.out, resultrdf, queryrdf) ;
+
            // printStatements(inf, Person, RDF.type, null);
 
 
