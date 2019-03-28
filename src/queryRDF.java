@@ -34,9 +34,16 @@ public class queryRDF{
         String john = "select * where {\n" +
                 "?x ?p 'John'\n"+
                 "}";
-        Query query = QueryFactory.create(getItemsLists);
+
+        String ancestor =   "prefix rdfs:<http://www.inria.fr/2007/09/11/humans.rdfs#>\n"+
+                "select ?y ?a where {\n"+
+                "?x rdfs:hasAncestor ?a.\n"+
+                "?x rdfs:name ?y \n" +
+                "}";
+
+        Query query = QueryFactory.create(ancestor);
         QueryExecution qExe = QueryExecutionFactory.create(query, model);
         ResultSet result = qExe.execSelect();
-        ResultSetFormatter.out(System.out, result, query) ;
+        ResultSetFormatter.out(System.out, result, query);
     }
 }
