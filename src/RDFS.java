@@ -73,13 +73,13 @@ public class RDFS {
                     "?y rdf:type prop:Male\n"+
                     "}";
 
-            Query query = QueryFactory.create(test);
-            QueryExecution qExe = QueryExecutionFactory.create(query, model);
+            Query query1 = QueryFactory.create(test);
+            QueryExecution qExe = QueryExecutionFactory.create(query1, model);
             ResultSet result = qExe.execSelect();
-            ResultSetFormatter.out(System.out, result, query) ;
+            ResultSetFormatter.out(System.out, result, query1) ;
 
             Query query2 = QueryFactory.create(test);
-            QueryExecution qExe2 = QueryExecutionFactory.create(query2, infmodel);
+            QueryExecution qExe2 = QueryExecutionFactory.create(query2, inf);
             ResultSet result2 = qExe2.execSelect();
             ResultSetFormatter.out(System.out, result2, query2) ;
 
